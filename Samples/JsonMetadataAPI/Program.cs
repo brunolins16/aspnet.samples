@@ -6,17 +6,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers();
+
+//  NEWTONSOFT JSON
+//builder.Services.AddControllers().AddNewtonsoftJson();
      
 
 // Using the default naming policy (camelcase)
 builder.Services.Configure<MvcOptions>(options => options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider()));
 
 // Using an specific naming policy
-builder.Services.Configure<MvcOptions>(options => options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider(new UpperCaseJsonNamingPolicy())));
+//builder.Services.Configure<MvcOptions>(options => options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider(new UpperCaseJsonNamingPolicy())));
 
 //  NEWTONSOFT JSON
-builder.Services.Configure<MvcOptions>(options => options.ModelMetadataDetailsProviders.Add(new NewtonsoftJsonValidationMetadataProvider()));
+//builder.Services.Configure<MvcOptions>(options => options.ModelMetadataDetailsProviders.Add(new NewtonsoftJsonValidationMetadataProvider()));
 
 var app = builder.Build();
 
